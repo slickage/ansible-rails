@@ -1,0 +1,13 @@
+---
+- hosts: all
+  user: root
+  vars_files:
+    - vars/defaults.yml
+
+  roles:
+    - webserver
+    - database
+
+  handlers: 
+    - name: Restart puma
+      action: service name=puma state=restarted

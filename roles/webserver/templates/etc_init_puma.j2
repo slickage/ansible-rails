@@ -1,0 +1,36 @@
+# /etc/init/puma.conf - Puma config
+
+# This example config should work with Ubuntu 12.04+.  It
+# allows you to manage multiple Puma instances with
+# Upstart, Ubuntu's native service management tool.
+#
+# See workers.conf for how to manage all Puma instances at once.
+#
+# Save this config as /etc/init/puma.conf then manage puma with:
+#   sudo start puma
+#   sudo stop puma
+#   sudo status puma
+#
+# or use the service command:
+#   sudo service puma {start,stop,restart,status}
+#
+
+description "Puma Background Worker"
+
+# no "start on", we don't want to automatically start
+stop on (stopping puma-manager or runlevel [06])
+
+# change apps to match your deployment user if you want to use this as a less privileged user (recommended!)
+setuid deploy
+setgid deploy
+
+respawn
+respawn limit 3 30
+
+instance {{deploy_directory}}/current
+
+script
+cd {{deploy_directory}}/current
+logger -t puma "Starting server: $app"
+exec bundle exec puma -C {{deploy_directory}}/current/config/puma/production.rb
+end script
