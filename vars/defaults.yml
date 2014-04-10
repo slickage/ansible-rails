@@ -1,6 +1,6 @@
 ## webapp
 
-webserver_name: seer.slickage.com
+webserver_name: 192.168.165.130
 deploy_directory: /data/seer
 app_name: seer
 

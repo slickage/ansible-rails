@@ -1,4 +1,4 @@
-# Ansible Rails 
+# Ansible Rails
 
 *Adapted from https://github.com/radar/ansible-rails-app*
 
@@ -16,6 +16,8 @@
    ansible, please use `/usr/local/etc/ansible/hosts`
 
 #### Running
+
+If you're using vagrant to create the box, please use the insecure SSH key `--private-key= ~/.vagrant.d/insecure_private_key` in the `ansible-playbook` command.
 
     $ ansible-playbook -i hosts rails-app.yml -t deploy,postgresql,nginx
     $ <deploy your app>
