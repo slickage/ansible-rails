@@ -8,14 +8,13 @@
   command: rm -rf /etc/nginx/sites-enabled/default
 
 - name: Remove the app's symlink, if exists
-  command: rm -rf /etc/nginx/sites-enabled/spree
+  command: rm -rf /etc/nginx/sites-enabled/{{app_name}}
 
 - name: Configure nginx for the app
-  template: src=etc_nginx_sites-available_spree.conf.j2 dest=/etc/nginx/sites-available/spree group=www-data owner=www-data force=yes
+  template: src=etc_nginx_sites-available_app.conf.j2 dest=/etc/nginx/sites-available/{{app_name}} group=www-data owner=www-data force=yes
 
 - name: Enable the app
-  command: ln -s /etc/nginx/sites-available/spree /etc/nginx/sites-enabled/spree
+  command: ln -s /etc/nginx/sites-available/{{app_name}} /etc/nginx/sites-enabled/{{app_name}}
 
 - name: Restart nginx
   action: service name=nginx state=restarted
-
