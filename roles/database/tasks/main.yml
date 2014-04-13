@@ -1,1 +1,2 @@
 - include: postgresql.yml tags=postgresql
+- include: redis.yml tags=redis
