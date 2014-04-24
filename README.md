@@ -13,7 +13,7 @@
 
 1. Change the app name and deploy directory in `vars/defaults.yml`
 2. Rename `hosts.example` to `hosts` and change it to your hosts. For Homebrew's
-   ansible, please use `/usr/local/etc/ansible/hosts`
+   ansible, this defaults to `/usr/local/etc/ansible/hosts`
 
 #### Running
 
