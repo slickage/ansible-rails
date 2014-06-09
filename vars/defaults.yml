@@ -1,7 +1,7 @@
 ## webapp
 
-app_name: seer
-webserver_name: seer.slickage.com
+app_name: cultur.io
+webserver_name: cultur.io
 deploy_directory: /data/{{app_name}}
 
 ## stolen from https://github.com/jgrowl/ansible-playbook-ruby-from-src
