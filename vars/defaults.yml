@@ -1,7 +1,6 @@
 ## webapp
-
-app_name: cultur.io
-webserver_name: cultur.io
+app_name: cap
+webserver_name: cap.hicapacity.org
 deploy_directory: /data/{{app_name}}
 
 ## stolen from https://github.com/jgrowl/ansible-playbook-ruby-from-src

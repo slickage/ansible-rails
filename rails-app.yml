@@ -1,6 +1,7 @@
 ---
 - hosts: all
-  user: root
+  user: vagrant
+  sudo: True
   vars_files:
     - vars/defaults.yml
 
